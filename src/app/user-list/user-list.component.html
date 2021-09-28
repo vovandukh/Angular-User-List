@@ -1,0 +1,35 @@
+<div class="container">
+    <form name="f1">
+        <p>Login</p>
+        <input [(ngModel)]="login" name="login" type="text" class="login" placeholder="Enter Login">
+        <p>Password</p>
+        <input [(ngModel)]="password" name="password" type="password" class="password" placeholder="Enter Password">
+        <p>Email Address</p>
+        <input [(ngModel)]="email" name="email" type="text" class="email" placeholder="Enter Email">
+        <div class="button addUser" [ngClass]="classAddUser" (click)="addUser()">Add User</div>
+        <div class="button editUser" [ngClass]="classEditUser" (click)="saveEditUser()" > Edit User</div>
+    </form>
+    <div class="table">
+        <table >
+            <thead>
+                <tr class="header">
+                    <td>#</td>
+                    <td>Login</td>
+                    <td>Password</td>
+                    <td>Email</td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                </tr>
+            </thead>
+            <tbody class="countLines">
+            <tr *ngFor="let item of arrUser" >
+               <td></td>
+               <td>{{ item.login }}</td>
+               <td>{{ item.password }}</td>
+               <td>{{ item.email }}</td>
+               <td><div  class="edit" (click)="editUser(item.id)">Edit</div></td>
+               <td><div  class="deleteUser" (click)="deleteUser(item.id)">Delete</div></td>
+            </tr>
+            </tbody>
+        </table>
+</div>
